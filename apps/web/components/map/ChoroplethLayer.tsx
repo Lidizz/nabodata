@@ -121,8 +121,9 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           'source-layer': 'fylker',
           maxzoom: DRILL_ZOOM,
           paint: {
-            'fill-color': getChoro(t)[3] ?? '#6E8DAF',
-            'fill-opacity': 0.25,
+            // Very subtle hover-only fill — borders carry the visual weight
+            'fill-color': t === 'dark' ? '#2DB7C2' : '#0E7C86',
+            'fill-opacity': 0.08,
           },
         });
       }
@@ -134,8 +135,9 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           'source-layer': 'fylker',
           maxzoom: DRILL_ZOOM + 1,
           paint: {
-            'line-color': getBorderColor(t),
-            'line-width': ['interpolate', ['linear'], ['zoom'], 3, 0.8, 6, 1.5],
+            'line-color': t === 'dark' ? '#2DB7C2' : '#0E7C86',
+            'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5],
+            'line-opacity': 0.7,
           },
         });
       }
@@ -203,11 +205,11 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           type: 'symbol',
           source: K_SOURCE,
           'source-layer': 'kommuner',
-          minzoom: 8,
+          minzoom: 7,
           layout: {
             'text-field': ['get', 'name_nb'],
             'text-font': ['Noto Sans Regular'],
-            'text-size': ['interpolate', ['linear'], ['zoom'], 8, 9, 12, 13],
+            'text-size': ['interpolate', ['linear'], ['zoom'], 7, 9, 12, 13],
             'text-anchor': 'center',
             'text-max-width': 6,
           },
