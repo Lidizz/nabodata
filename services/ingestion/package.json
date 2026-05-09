@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nabodata/types": "*",
+    "@xmldom/xmldom": "^0.9.3",
     "postgres": "^3.4.5",
     "pino": "^9.5.0"
   },

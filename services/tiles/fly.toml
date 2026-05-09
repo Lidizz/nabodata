@@ -2,10 +2,9 @@ app = "nabodata-tiles"
 primary_region = "arn"
 
 [build]
-  image = "ghcr.io/maplibre/martin:latest"
 
 [env]
-  # DATABASE_URL is set as a Fly.io secret
+  # DATABASE_URL is set via: fly secrets set DATABASE_URL="..."
 
 [http_service]
   internal_port = 3000
@@ -13,10 +12,6 @@ primary_region = "arn"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 1
-
-[mounts]
-  source = "martin_config"
-  destination = "/config"
 
 [[vm]]
   size = "shared-cpu-1x"
