@@ -71,7 +71,9 @@ function boundsFromFeature(feature: { geometry: GeoJSON.Geometry }): LngLatBound
   if (geom.type !== 'Polygon' && geom.type !== 'MultiPolygon') return null;
   let minLng = Infinity, maxLng = -Infinity, minLat = Infinity, maxLat = -Infinity;
   function scanRing(coords: GeoJSON.Position[]) {
-    for (const [lng, lat] of coords) {
+    for (const coord of coords) {
+      const lng = coord[0]; const lat = coord[1];
+      if (lng === undefined || lat === undefined) continue;
       if (lng < minLng) minLng = lng; if (lng > maxLng) maxLng = lng;
       if (lat < minLat) minLat = lat; if (lat > maxLat) maxLat = lat;
     }
