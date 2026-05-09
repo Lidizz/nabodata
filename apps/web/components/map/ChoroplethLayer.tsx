@@ -55,7 +55,8 @@ function getFillOpacity(theme: Theme): number {
 function buildStepExpression(theme: Theme): maplibregl.ExpressionSpecification {
   const colors = getChoro(theme);
   const fallback = colors[0] ?? '#ECF1F6';
-  const expr: unknown[] = ['step', ['get', 'population_density'], fallback];
+  // coalesce: if population_density is null (not yet in tiles), default to 0
+  const expr: unknown[] = ['step', ['coalesce', ['get', 'population_density'], 0], fallback];
   for (let i = 0; i < DENSITY_BREAKS.length && i < colors.length - 1; i++) {
     expr.push(DENSITY_BREAKS[i]);
     expr.push(colors[i + 1] ?? '#ECF1F6');
@@ -148,7 +149,7 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           maxzoom: DRILL_ZOOM,
           layout: {
             'text-field': ['get', 'name_nb'],
-            'text-font': ['Noto Sans Regular', 'Arial Unicode MS Regular'],
+            'text-font': ['Noto Sans Regular'],
             'text-size': ['interpolate', ['linear'], ['zoom'], 4, 10, 6, 13],
             'text-anchor': 'center',
             'text-max-width': 8,
@@ -205,7 +206,7 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           minzoom: 8,
           layout: {
             'text-field': ['get', 'name_nb'],
-            'text-font': ['Noto Sans Regular', 'Arial Unicode MS Regular'],
+            'text-font': ['Noto Sans Regular'],
             'text-size': ['interpolate', ['linear'], ['zoom'], 8, 9, 12, 13],
             'text-anchor': 'center',
             'text-max-width': 6,
