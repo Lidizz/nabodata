@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useMapStore } from '@nabodata/store';
 import { getKommune, ApiClientError } from '@nabodata/api-client';
 import type { Kommune } from '@nabodata/types';
@@ -14,6 +14,7 @@ type PanelState = 'idle' | 'loading' | 'ready' | 'no-data' | 'error';
 
 export function DataPanel() {
   const { activeKommuneSlug } = useMapStore();
+  const close = useCallback(() => useMapStore.getState().setActiveKommuneSlug(null), []);
   const [kommune, setKommune] = useState<Kommune | null>(null);
   const [state, setState] = useState<PanelState>('idle');
 
@@ -63,6 +64,29 @@ export function DataPanel() {
         padding: 'var(--sp-5)',
       }}
     >
+      <button
+        onClick={close}
+        aria-label="Lukk panel"
+        style={{
+          position: 'absolute',
+          top: 12,
+          right: 12,
+          width: 28,
+          height: 28,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 'var(--r-2)',
+          border: '1px solid var(--border-1)',
+          background: 'var(--surface-2)',
+          color: 'var(--fg-3)',
+          cursor: 'pointer',
+          fontSize: 16,
+          lineHeight: 1,
+        }}
+      >
+        ×
+      </button>
       {state === 'loading' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
           {[100, 80, 100, 180, 60].map((w, i) => (

@@ -14,7 +14,7 @@ export default function LocaleHomePage() {
         <div className="pointer-events-auto absolute left-4 right-4 top-4 flex items-start justify-between gap-3 md:left-4 md:right-auto md:w-96">
           <SearchBar />
         </div>
-        <div className="pointer-events-auto absolute right-4 top-4">
+        <div className="pointer-events-auto absolute bottom-8 left-4">
           <ThemeSwitcher />
         </div>
       </div>
