@@ -66,8 +66,8 @@ function buildStepExpression(theme: Theme): maplibregl.ExpressionSpecification {
 // ── Bounds helper ─────────────────────────────────────────────────────────────
 type LngLatBounds = [[number, number], [number, number]];
 
-function boundsFromFeature(feature: maplibregl.GeoJSONFeature): LngLatBounds | null {
-  const geom = feature.geometry as GeoJSON.Geometry;
+function boundsFromFeature(feature: { geometry: GeoJSON.Geometry }): LngLatBounds | null {
+  const geom = feature.geometry;
   if (geom.type !== 'Polygon' && geom.type !== 'MultiPolygon') return null;
   let minLng = Infinity, maxLng = -Infinity, minLat = Infinity, maxLat = -Infinity;
   function scanRing(coords: GeoJSON.Position[]) {
