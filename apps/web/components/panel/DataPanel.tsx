@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useMapStore } from '@nabodata/store';
-import { getKommune } from '@nabodata/api-client';
+import { getKommune, ApiClientError } from '@nabodata/api-client';
 import type { Kommune } from '@nabodata/types';
 import { StatCard } from './StatCard';
 import { AgePyramid } from './AgePyramid';
@@ -10,24 +10,36 @@ import { HorizontalBarChart } from './HorizontalBarChart';
 
 const API_URL = process.env['NEXT_PUBLIC_API_URL'] ?? 'http://localhost:3002';
 
+type PanelState = 'idle' | 'loading' | 'ready' | 'no-data' | 'error';
+
 export function DataPanel() {
   const { activeKommuneSlug } = useMapStore();
   const [kommune, setKommune] = useState<Kommune | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState<PanelState>('idle');
 
   useEffect(() => {
     if (!activeKommuneSlug) {
       setKommune(null);
+      setState('idle');
       return;
     }
-    setLoading(true);
+    setState('loading');
+    setKommune(null);
     getKommune(API_URL, activeKommuneSlug)
-      .then(({ data }) => { setKommune(data); })
-      .catch(() => { setKommune(null); })
-      .finally(() => { setLoading(false); });
+      .then(({ data }) => {
+        setKommune(data);
+        setState('ready');
+      })
+      .catch((err: unknown) => {
+        if (err instanceof ApiClientError && err.statusCode === 404) {
+          setState('no-data');
+        } else {
+          setState('error');
+        }
+      });
   }, [activeKommuneSlug]);
 
-  const isOpen = !!activeKommuneSlug;
+  const isOpen = activeKommuneSlug !== null;
 
   return (
     <aside
@@ -51,17 +63,49 @@ export function DataPanel() {
         padding: 'var(--sp-5)',
       }}
     >
-      {kommune && !loading ? (
+      {state === 'loading' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
+          {[100, 80, 100, 180, 60].map((w, i) => (
+            <div
+              key={i}
+              style={{
+                height: i === 3 ? 120 : 48,
+                width: `${Math.min(w, 100)}%`,
+                borderRadius: 'var(--r-3)',
+                background: 'var(--surface-3)',
+                animation: 'pulse 1.4s ease-in-out infinite',
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {state === 'no-data' && (
+        <div style={{ paddingTop: 24, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <p style={{ fontSize: 'var(--fs-h3)', fontWeight: 600, color: 'var(--fg-1)' }}>
+            {activeKommuneSlug}
+          </p>
+          <p style={{ fontSize: 'var(--fs-body-sm)', color: 'var(--fg-3)' }}>
+            Ingen statistikk tilgjengelig ennå.
+          </p>
+          <p style={{ fontSize: 'var(--fs-body-sm)', color: 'var(--fg-4)' }}>
+            Data hentes fra SSB og lastes inn fortløpende.
+          </p>
+        </div>
+      )}
+
+      {state === 'error' && (
+        <div style={{ paddingTop: 24 }}>
+          <p style={{ fontSize: 'var(--fs-body-sm)', color: 'var(--danger)' }}>
+            Kunne ikke laste området. Prøv igjen.
+          </p>
+        </div>
+      )}
+
+      {state === 'ready' && kommune && (
         <>
           <div>
-            <h2
-              style={{
-                fontSize: 'var(--fs-h2)',
-                fontWeight: 600,
-                color: 'var(--fg-1)',
-                marginBottom: 4,
-              }}
-            >
+            <h2 style={{ fontSize: 'var(--fs-h2)', fontWeight: 600, color: 'var(--fg-1)', marginBottom: 4 }}>
               {kommune.name.nb}
             </h2>
             <p style={{ fontSize: 'var(--fs-body-sm)', color: 'var(--fg-3)', fontFamily: 'var(--font-mono)' }}>
@@ -101,22 +145,7 @@ export function DataPanel() {
             }))}
           />
         </>
-      ) : isOpen ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
-          {[100, 80, 100, 180, 60].map((w, i) => (
-            <div
-              key={i}
-              style={{
-                height: i === 3 ? 120 : 48,
-                width: `${Math.min(w, 100)}%`,
-                borderRadius: 'var(--r-3)',
-                background: 'var(--surface-3)',
-                animation: 'pulse 1.4s ease-in-out infinite',
-              }}
-            />
-          ))}
-        </div>
-      ) : null}
+      )}
     </aside>
   );
 }
