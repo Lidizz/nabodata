@@ -1,0 +1,8 @@
+{
+  "meta.title": "Nabodata — Norwegian neighbourhood intelligence",
+  "meta.description": "Explore demographic and geographic data for every municipality and county in Norway.",
+  "meta.fylke.title": "{{name}} — Nabodata",
+  "meta.fylke.description": "Explore municipalities and statistics for {{name}} county.",
+  "meta.kommune.title": "{{name}} — Nabodata",
+  "meta.kommune.description": "Demographics, income, and statistics for {{name}} municipality."
+}

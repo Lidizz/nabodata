@@ -1,0 +1,13 @@
+{
+  "stat.population": "Residents",
+  "stat.density": "Density",
+  "stat.densityUnit": "residents / km²",
+  "stat.medianIncome": "Median income",
+  "stat.changeYoY": "change year-on-year",
+  "stat.vsNational": "vs. national",
+  "chart.agePyramid": "Age distribution",
+  "chart.male": "Male",
+  "chart.female": "Female",
+  "panel.about": "About {{name}}",
+  "panel.updatedAt": "Updated {{date}}"
+}

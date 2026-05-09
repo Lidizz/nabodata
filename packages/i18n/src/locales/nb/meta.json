@@ -1,0 +1,8 @@
+{
+  "meta.title": "Nabodata — Norges nabolagsintelligens",
+  "meta.description": "Utforsk demografiske og geografiske data for alle kommuner og fylker i Norge.",
+  "meta.fylke.title": "{{name}} — Nabodata",
+  "meta.fylke.description": "Utforsk kommuner og statistikk for {{name}} fylke.",
+  "meta.kommune.title": "{{name}} — Nabodata",
+  "meta.kommune.description": "Demografi, inntekt, og statistikk for {{name}} kommune."
+}

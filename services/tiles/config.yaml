@@ -1,0 +1,4 @@
+listen_addresses: '0.0.0.0:3000'
+
+postgres:
+  connection_string: postgresql://nabodata:password@postgres:5432/nabodata

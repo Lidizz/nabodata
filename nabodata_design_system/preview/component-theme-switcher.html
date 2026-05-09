@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theme switcher</title>
+<link rel="stylesheet" href="_preview.css">
+</head>
+<body>
+<div class="card" style="justify-content: center;">
+  <div class="row" style="justify-content: center; gap: 28px;">
+    <!-- Light variant -->
+    <div class="col" style="align-items:center; gap:8px;">
+      <div style="display:inline-flex; padding: 4px; background: var(--surface-1); border: 1px solid var(--border-1); border-radius: 999px; box-shadow: var(--shadow-2);">
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:var(--surface-3); border-radius:999px; cursor:pointer;" aria-pressed="true" aria-label="Light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F1723" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:transparent; border-radius:999px; cursor:pointer;" aria-pressed="false" aria-label="Dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7787" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:transparent; border-radius:999px; cursor:pointer;" aria-pressed="false" aria-label="Color">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7787" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="#6B7787"/><circle cx="17.5" cy="10.5" r=".5" fill="#6B7787"/><circle cx="8.5" cy="7.5" r=".5" fill="#6B7787"/><circle cx="6.5" cy="12.5" r=".5" fill="#6B7787"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        </button>
+      </div>
+      <span class="data-label">light · dark · color · 3-way</span>
+    </div>
+
+    <!-- Dark variant -->
+    <div class="col" style="align-items:center; gap:8px;">
+      <div style="display:inline-flex; padding: 4px; background: #11161D; border: 1px solid #232A35; border-radius: 999px;">
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:transparent; border-radius:999px;" aria-label="Light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#828D9C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:#232A35; border-radius:999px;" aria-pressed="true" aria-label="Dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ECEFF4" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <button style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:0; background:transparent; border-radius:999px;" aria-label="Color">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#828D9C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="#828D9C"/><circle cx="17.5" cy="10.5" r=".5" fill="#828D9C"/><circle cx="8.5" cy="7.5" r=".5" fill="#828D9C"/><circle cx="6.5" cy="12.5" r=".5" fill="#828D9C"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        </button>
+      </div>
+      <span class="data-label">on dark map</span>
+    </div>
+  </div>
+  <div class="data-label" style="text-align:center;">40 px tall · pill · 12 px backdrop-blur · 200 ms cross-fade on switch</div>
+</div>
+</body>
+</html>

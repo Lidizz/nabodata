@@ -1,0 +1,29 @@
+@import './tokens.css';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* MapLibre attribution compact style */
+.maplibregl-ctrl-attrib {
+  font-size: var(--fs-micro);
+  color: var(--fg-3);
+  background: var(--scrim-strong);
+  backdrop-filter: blur(8px);
+  border-radius: var(--r-2);
+}

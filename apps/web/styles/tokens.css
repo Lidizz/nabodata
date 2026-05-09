@@ -1,0 +1,88 @@
+/* Nabodata — Foundations: Colors + Type */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap');
+
+:root {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-serif: 'IBM Plex Serif', ui-serif, Georgia, serif;
+
+  --fs-display: 34px; --fs-h1: 24px; --fs-h2: 18px; --fs-h3: 15px;
+  --fs-body: 14px; --fs-body-sm: 13px; --fs-label: 12px;
+  --fs-data: 11px; --fs-micro: 10px;
+
+  --lh-tight: 1.1; --lh-snug: 1.25; --lh-base: 1.45; --lh-loose: 1.6;
+  --tr-tight: -0.01em; --tr-base: 0; --tr-wide: 0.04em; --tr-eyebrow: 0.08em;
+  --fw-light: 300; --fw-regular: 400; --fw-medium: 500;
+  --fw-semibold: 600; --fw-bold: 700;
+
+  --bg: #F7F8FA; --surface-1: #FFFFFF; --surface-2: #F2F4F7;
+  --surface-3: #E8ECF1; --scrim: rgba(15,23,35,0.04);
+  --scrim-strong: rgba(15,23,35,0.10);
+
+  --fg-1: #0F1723; --fg-2: #3D4A5C; --fg-3: #6B7787;
+  --fg-4: #9AA3B2; --fg-on-accent: #FFFFFF;
+
+  --border-1: #E4E8EE; --border-2: #D2D8E0; --border-strong: #A8B1BF;
+
+  --accent: #0E7C86; --accent-hover: #0A6973; --accent-press: #075860;
+  --accent-soft: #DCEFF1; --accent-ring: rgba(14,124,134,0.28);
+
+  --success: #2E7D5B; --warning: #B5740E;
+  --danger: #B23A48; --info: #2C5F90;
+
+  --shadow-1: 0 1px 2px rgba(15,23,35,0.05), 0 1px 1px rgba(15,23,35,0.04);
+  --shadow-2: 0 2px 6px rgba(15,23,35,0.06), 0 1px 2px rgba(15,23,35,0.04);
+  --shadow-3: 0 8px 24px rgba(15,23,35,0.08), 0 2px 6px rgba(15,23,35,0.05);
+  --shadow-panel: 0 -2px 16px rgba(15,23,35,0.06);
+
+  --choro-1: #ECF1F6; --choro-2: #C9D6E5; --choro-3: #9CB1CB;
+  --choro-4: #6E8DAF; --choro-5: #486D92; --choro-6: #2C5176; --choro-7: #15355A;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 40px;
+  --sp-9: 56px; --sp-10: 72px;
+
+  --r-1: 2px; --r-2: 4px; --r-3: 8px; --r-4: 12px; --r-5: 16px; --r-pill: 999px;
+
+  --dur-fast: 120ms; --dur-base: 200ms; --dur-slow: 320ms;
+  --dur-panel: 360ms; --dur-zoom: 600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --z-map: 0; --z-overlay: 10; --z-panel: 20; --z-sheet: 30;
+  --z-modal: 40; --z-toast: 50;
+
+  --viz-1: #0E7C86; --viz-2: #6B8E4E; --viz-3: #B23A48; --viz-4: #B86E3C;
+  --viz-5: #5C6B7A; --viz-6: #C8A65A; --viz-7: #6E4C7A; --viz-8: #5A8FBF;
+}
+
+[data-theme="dark"] {
+  --bg: #0B0F14; --surface-1: #11161D; --surface-2: #181E27; --surface-3: #232A35;
+  --scrim: rgba(255,255,255,0.04); --scrim-strong: rgba(255,255,255,0.10);
+  --fg-1: #ECEFF4; --fg-2: #B6BFCB; --fg-3: #828D9C; --fg-4: #5B6571;
+  --fg-on-accent: #06181B;
+  --border-1: #1F2731; --border-2: #2C3540; --border-strong: #475160;
+  --accent: #2DB7C2; --accent-hover: #4FCBD5; --accent-press: #1F9EA8;
+  --accent-soft: rgba(45,183,194,0.14); --accent-ring: rgba(45,183,194,0.34);
+  --success: #4FB088; --warning: #E0A040; --danger: #E37582; --info: #6EA3D8;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-2: 0 2px 8px rgba(0,0,0,0.55);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.6);
+  --shadow-panel: 0 -4px 24px rgba(0,0,0,0.55);
+  --choro-1: #2B241B; --choro-2: #4F3D26; --choro-3: #7A5A36;
+  --choro-4: #A57850; --choro-5: #3F8580; --choro-6: #5FA3A5; --choro-7: #2DB7C2;
+  --viz-1: #2DB7C2; --viz-2: #9CC36C; --viz-3: #E37582; --viz-4: #E59761;
+  --viz-5: #93A3B6; --viz-6: #E8C778; --viz-7: #B58CC7; --viz-8: #8FB6E0;
+}
+
+[data-theme="color"] {
+  --bg: #F2EEE3; --surface-1: #FAF6EC; --surface-2: #ECE6D5; --surface-3: #DDD5BF;
+  --scrim: rgba(40,35,25,0.04); --scrim-strong: rgba(40,35,25,0.10);
+  --fg-1: #1F2A24; --fg-2: #4A5650; --fg-3: #767F78; --fg-4: #A19E91;
+  --fg-on-accent: #FAF6EC;
+  --border-1: #E0D7C2; --border-2: #C9BFA6; --border-strong: #9C9277;
+  --accent: #275F76; --accent-hover: #1F4F63; --accent-press: #163E50;
+  --accent-soft: #D8E4EA; --accent-ring: rgba(39,95,118,0.30);
+  --choro-1: #EFE8D2; --choro-2: #D5D2B0; --choro-3: #A8B795;
+  --choro-4: #6E988A; --choro-5: #487C81; --choro-6: #275F76; --choro-7: #143F60;
+}

@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Nabodata",
+    "slug": "nabodata",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F8FA"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "no.nabodata.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F7F8FA"
+      },
+      "package": "no.nabodata.app"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "@maplibre/maplibre-react-native",
+        {}
+      ]
+    ],
+    "scheme": "nabodata",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

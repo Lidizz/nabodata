@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Motion</title>
+<link rel="stylesheet" href="_preview.css">
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Motion · short, ease-out, no overshoot</div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; font-size: 12px;">
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--dur-fast</span>
+      <span class="data-label">120 ms · hover, focus</span>
+    </div>
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--dur-base</span>
+      <span class="data-label">200 ms · theme cross-fade</span>
+    </div>
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--dur-slow</span>
+      <span class="data-label">320 ms · sheet expand</span>
+    </div>
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--dur-panel</span>
+      <span class="data-label">360 ms · panel slide</span>
+    </div>
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--dur-zoom</span>
+      <span class="data-label">600 ms · map zoom</span>
+    </div>
+    <div class="row" style="justify-content: space-between;">
+      <span style="font-family: var(--font-mono);">--ease-out</span>
+      <span class="data-label">cubic-bezier(.22, 1, .36, 1)</span>
+    </div>
+  </div>
+  <!-- Visual: animating dot -->
+  <div style="position: relative; margin-top: 6px; height: 16px; background: var(--surface-2); border-radius: 8px; overflow: hidden;">
+    <div style="position:absolute; top:2px; left:2px; width:12px; height:12px; border-radius:50%; background:var(--accent); animation: glide 2.4s var(--ease-out) infinite alternate;"></div>
+  </div>
+  <style>
+    @keyframes glide {
+      from { left: 2px; }
+      to { left: calc(100% - 14px); }
+    }
+  </style>
+</div>
+</body>
+</html>

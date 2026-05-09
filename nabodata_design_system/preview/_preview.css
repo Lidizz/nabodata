@@ -1,0 +1,45 @@
+/* Shared styles for preview cards (Design System tab) */
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--surface-1);
+  color: var(--fg-1);
+}
+
+.card {
+  width: 100%;
+  height: 100vh;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--font-sans);
+}
+
+.row { display: flex; align-items: center; gap: 12px; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+.grid { display: grid; gap: 10px; }
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.swatch .chip {
+  height: 56px;
+  border-radius: var(--r-2);
+  border: 1px solid var(--border-1);
+}
+.swatch .meta {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.swatch .name {
+  font-size: 12px; font-weight: 500; color: var(--fg-1);
+}
+.swatch .hex {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+}

@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: nabodata
+      POSTGRES_USER: nabodata
+      POSTGRES_PASSWORD: password
+    ports: ['5433:5432']
+    volumes: ['pg_data:/var/lib/postgresql/data']
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nabodata']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports: ['6379:6379']
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  martin:
+    image: ghcr.io/maplibre/martin:latest
+    command: ['--config', '/config/config.yaml']
+    environment:
+      DATABASE_URL: postgresql://nabodata:password@postgres:5432/nabodata
+    ports: ['3001:3000']
+    volumes: ['../services/tiles/config.yaml:/config/config.yaml']
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pg_data:

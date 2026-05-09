@@ -1,0 +1,13 @@
+{
+  "stat.population": "Innbyggere",
+  "stat.density": "Tetthet",
+  "stat.densityUnit": "innb. / km²",
+  "stat.medianIncome": "Medianinntekt",
+  "stat.changeYoY": "endring siste år",
+  "stat.vsNational": "vs. nasjonalt",
+  "chart.agePyramid": "Aldersfordeling",
+  "chart.male": "Menn",
+  "chart.female": "Kvinner",
+  "panel.about": "Om {{name}}",
+  "panel.updatedAt": "Oppdatert {{date}}"
+}

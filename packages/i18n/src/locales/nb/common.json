@@ -1,0 +1,13 @@
+{
+  "nav.search": "Søk etter kommune eller fylke",
+  "nav.back": "Tilbake",
+  "action.compare": "Sammenlign",
+  "action.download": "Last ned",
+  "action.filter": "Filtrer",
+  "error.loadArea": "Kunne ikke laste området. Prøv igjen.",
+  "error.noResults": "Ingen resultater",
+  "loading": "Laster data",
+  "theme.light": "Lyst",
+  "theme.dark": "Mørkt",
+  "theme.color": "Farge"
+}

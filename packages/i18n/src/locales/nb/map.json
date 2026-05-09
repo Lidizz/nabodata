@@ -1,0 +1,11 @@
+{
+  "map.attribution": "© Kartverket",
+  "map.zoomIn": "Zoom inn",
+  "map.zoomOut": "Zoom ut",
+  "map.resetView": "Tilbakestill visning",
+  "map.selectArea": "Velg et område på kartet",
+  "map.fylke": "Fylke",
+  "map.kommune": "Kommune",
+  "map.grunnkrets": "Grunnkrets",
+  "map.choropleth.population": "Befolkningstetthet (innb./km²)"
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search bar</title>
+<link rel="stylesheet" href="_preview.css">
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Search · floats over map · 480 px desktop / 92 vw mobile</div>
+
+  <!-- Idle -->
+  <div style="display:flex; align-items:center; height: 44px; padding: 0 14px; gap: 10px; background: var(--surface-1); border: 1px solid var(--border-1); border-radius: 8px; box-shadow: var(--shadow-2);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B7787" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+    <span style="color: var(--fg-3); font-size: 14px;">Søk fylke, kommune, sted…</span>
+    <kbd style="margin-left:auto; padding: 2px 6px; border:1px solid var(--border-2); border-radius: 4px; font: 500 11px var(--font-mono); color: var(--fg-3); background: var(--surface-2);">⌘K</kbd>
+  </div>
+
+  <!-- With results -->
+  <div style="background: var(--surface-1); border: 1px solid var(--border-1); border-radius: 8px; box-shadow: var(--shadow-3); overflow: hidden;">
+    <div style="display:flex; align-items:center; height: 44px; padding: 0 14px; gap: 10px; border-bottom: 1px solid var(--border-1);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E7C86" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <span style="font-size: 14px;">berg</span>
+      <span style="margin-left:auto; color: var(--fg-3); font-size: 11px; font-family: var(--font-mono);">3 treff</span>
+    </div>
+    <div style="display:flex; align-items:center; padding: 8px 14px; gap: 10px; background: var(--surface-2);">
+      <span style="font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); width: 64px;">KOMMUNE</span>
+      <span style="font-size: 13px; flex:1;">Bergen <span style="color:var(--fg-3);"> · Vestland</span></span>
+      <span style="font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); font-variant-numeric: tabular-nums;">285 911</span>
+    </div>
+    <div style="display:flex; align-items:center; padding: 8px 14px; gap: 10px;">
+      <span style="font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); width: 64px;">STED</span>
+      <span style="font-size: 13px; flex:1;">Bergsdalen <span style="color:var(--fg-3);"> · Voss</span></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

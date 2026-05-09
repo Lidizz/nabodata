@@ -1,0 +1,21 @@
+{
+  "name": "@nabodata/ingestion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "run-job": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@nabodata/types": "*",
+    "postgres": "^3.4.5",
+    "pino": "^9.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "*"
+  }
+}

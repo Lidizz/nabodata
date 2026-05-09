@@ -1,0 +1,13 @@
+{
+  "nav.search": "Search for a municipality or county",
+  "nav.back": "Back",
+  "action.compare": "Compare",
+  "action.download": "Download",
+  "action.filter": "Filter",
+  "error.loadArea": "Could not load the area. Please try again.",
+  "error.noResults": "No results",
+  "loading": "Loading data",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.color": "Color"
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Language switcher &amp; skeleton</title>
+<link rel="stylesheet" href="_preview.css">
+</head>
+<body>
+<div class="card">
+  <div class="row" style="gap: 32px; align-items: flex-start;">
+    <div class="col" style="flex: 0 0 auto;">
+      <div class="eyebrow">Language</div>
+      <div style="display:inline-flex; padding: 2px; background: var(--surface-2); border-radius: 4px; font: 500 11px var(--font-mono);">
+        <button style="padding: 4px 8px; border:0; background: var(--surface-1); border-radius: 2px; color: var(--fg-1); cursor:pointer; box-shadow: var(--shadow-1);">NO</button>
+        <button style="padding: 4px 8px; border:0; background: transparent; color: var(--fg-3); cursor:pointer;">EN</button>
+      </div>
+    </div>
+
+    <div class="col" style="flex: 1;">
+      <div class="eyebrow">Loading skeleton</div>
+      <div style="display:flex; flex-direction:column; gap: 8px;">
+        <div style="height: 16px; width: 40%; background: var(--surface-2); border-radius: 4px; animation: pulse 1.4s linear infinite;"></div>
+        <div style="height: 28px; width: 70%; background: var(--surface-2); border-radius: 4px; animation: pulse 1.4s linear infinite;"></div>
+        <div style="height: 12px; width: 60%; background: var(--surface-2); border-radius: 4px; animation: pulse 1.4s linear infinite;"></div>
+      </div>
+    </div>
+  </div>
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.55; }
+    }
+  </style>
+</div>
+</body>
+</html>
