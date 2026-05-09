@@ -6,6 +6,7 @@ import { DataPanel } from '../../../../components/panel/DataPanel';
 import { ThemeSwitcher } from '../../../../components/map/ThemeSwitcher';
 import { SearchBar } from '../../../../components/search/SearchBar';
 import { BreadcrumbOverlay } from '../../../../components/map/BreadcrumbOverlay';
+import { KommuneInit } from '../../../../components/map/KommuneInit';
 
 const API_URL = process.env['NEXT_PUBLIC_API_URL'] ?? 'http://localhost:3002';
 
@@ -56,7 +57,8 @@ export default async function KommunePage({
         </div>
         <BreadcrumbOverlay kommuneName={name} />
       </div>
-      <DataPanel kommune={kommuneData} locale={locale === 'nb' ? 'nb' : 'en'} />
+      <KommuneInit slug={slug} />
+      <DataPanel />
     </main>
   );
 }
