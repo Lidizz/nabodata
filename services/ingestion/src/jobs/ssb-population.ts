@@ -202,5 +202,13 @@ export async function runPopulationIngestion(sql: postgres.Sql): Promise<void> {
     }
   }
 
+  logger.info('Updating kommuner population_density from kommune_stats');
+  await sql`
+    UPDATE kommuner k
+    SET population_density = (ks.stats -> 'population' ->> 'densityPerKm2')::float8
+    FROM kommune_stats ks
+    WHERE ks.kommune_id = k.id
+  `;
+
   logger.info({ upserted, noData, total: kommuneIds.length }, 'SSB population ingestion complete');
 }

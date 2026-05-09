@@ -38,6 +38,11 @@ function getBorderColor(theme: Theme): string {
   return '#D2D8E0';
 }
 
+function getFylkeAccentColor(theme: Theme): string {
+  if (theme === 'dark') return '#2DB7C2';
+  return '#0E7C86';
+}
+
 function getLabelColor(theme: Theme): string {
   if (theme === 'dark') return '#ECF1F6';
   return '#0F1723';
@@ -122,7 +127,7 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           maxzoom: DRILL_ZOOM,
           paint: {
             // Very subtle hover-only fill — borders carry the visual weight
-            'fill-color': t === 'dark' ? '#2DB7C2' : '#0E7C86',
+            'fill-color': getFylkeAccentColor(t),
             'fill-opacity': 0.08,
           },
         });
@@ -135,7 +140,7 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
           'source-layer': 'fylker',
           maxzoom: DRILL_ZOOM + 1,
           paint: {
-            'line-color': t === 'dark' ? '#2DB7C2' : '#0E7C86',
+            'line-color': getFylkeAccentColor(t),
             'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.5, 6, 2.5],
             'line-opacity': 0.7,
           },
@@ -244,7 +249,8 @@ export function ChoroplethLayer({ map, theme }: ChoroplethLayerProps) {
       map.setPaintProperty(K_FILL, 'fill-opacity', getFillOpacity(theme));
     }
     if (map.getLayer(K_LINE))  map.setPaintProperty(K_LINE, 'line-color', getBorderColor(theme));
-    if (map.getLayer(F_LINE))  map.setPaintProperty(F_LINE, 'line-color', getBorderColor(theme));
+    if (map.getLayer(F_FILL))  map.setPaintProperty(F_FILL, 'fill-color', getFylkeAccentColor(theme));
+    if (map.getLayer(F_LINE))  map.setPaintProperty(F_LINE, 'line-color', getFylkeAccentColor(theme));
     if (map.getLayer(K_LABEL)) {
       map.setPaintProperty(K_LABEL, 'text-color', getLabelColor(theme));
       map.setPaintProperty(K_LABEL, 'text-halo-color', getLabelHalo(theme));

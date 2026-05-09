@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "turbo dev --filter=@nabodata/web --filter=@nabodata/api --filter=@nabodata/mobile",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
     "test": "turbo test",
